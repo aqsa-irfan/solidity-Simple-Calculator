@@ -1,0 +1,31 @@
+//SPDX-License-Identifier: Unlicensed
+pragma solidity ^0.8.15;
+contract calculator
+{
+    uint8 result;
+    function Add(uint8 number1 , uint8 number2) public 
+    {
+        result=number1+number2;
+        
+    }
+    function Sub(uint8 number1 , uint8 number2) public 
+    {
+        result=number1-number2;
+        
+    }
+    function Multiply(uint8 number1 , uint8 number2) public 
+    {
+        result=number1*number2;
+    
+    }
+    function Divide(uint8 number1 , uint8 number2) public  
+    {
+        result=number1/number2;
+        
+    }
+    function Result() public view returns(uint8)
+    {
+        return(result);
+    }
+
+}
