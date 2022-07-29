@@ -1,0 +1,32 @@
+//SPDX-License-Identifier: Unlicensed
+pragma solidity ^0.8.15;
+contract TodoList
+{
+    struct Todo{
+        string text;
+        
+    }
+    Todo[]  todos;
+    function create(string calldata _text) external {
+        todos.push(Todo({text: _text}));
+    }
+    function updateText(uint _index, string calldata _text) external {
+        todos[_index].text=_text;
+    }
+    function get(uint _index) external view returns(string memory )
+    {
+        Todo memory todo=todos[_index];
+        return(todo.text );
+    }
+    
+    
+    function DeleteItem(uint _index) external {
+        require(_index < todos.length);
+        todos[_index] = todos[todos.length-1];
+        todos.pop();
+    }
+    function DeleteAll() external{
+        delete todos;
+    }
+    
+} 
