@@ -1,0 +1,26 @@
+//SPDX-License-Identifier: Unlicensed
+pragma solidity ^0.8.15;
+contract TOdoApp
+{
+    string[] data;
+    event TaskCreated(string,uint);
+    event taskdeleted(string,uint);
+    uint taskCounter;
+    function addTask(string memory taskName) public{
+        data.push(taskName);
+        taskCounter++;
+        emit TaskCreated(taskName,taskCounter);
+    }
+    function getAllTask() public view returns(string[] memory)
+    {
+        return data;
+    }
+    function deleteTask(uint taskNumberIndex) public{
+        delete data[taskNumberIndex];
+        emit taskdeleted(data[taskNumberIndex],taskNumberIndex);
+    }
+    function deleteAllTask() public 
+    {
+        delete data;
+    }
+}
